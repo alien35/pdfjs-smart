@@ -1,0 +1,8 @@
+[build]
+  publish = "web"
+
+[[redirects]]
+  from = "/*"
+  to = "/viewer.html"
+  status = 200
+  force = true
