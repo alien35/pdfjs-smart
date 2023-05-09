@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/(.*).(js|css|png|jpg|jpeg|gif|ico|svg)",
+      "headers": { "cache-control": "max-age=31536000,immutable" },
+      "dest": "/public/$1.$2"
+    },
+    {
+      "src": "/es-module-shims/dist/(.*)",
+      "headers": { "cache-control": "max-age=31536000,immutable" },
+      "dest": "/node_modules/es-module-shims/dist/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    }
+  ]
+}

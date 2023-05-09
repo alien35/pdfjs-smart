@@ -14,7 +14,7 @@
     "core-js": "^3.30.1",
     "cross-env": "^7.0.3",
     "dialog-polyfill": "^0.5.6",
-    "es-module-shims": "1.4.7",
+    "es-module-shims": "^1.4.7",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-fetch-options": "^0.0.5",
@@ -38,6 +38,7 @@
     "jstransformer-markdown-it": "^3.0.0",
     "merge-stream": "^2.0.0",
     "mkdirp": "^3.0.0",
+    "ncp": "^2.0.0",
     "needle": "^3.2.0",
     "path2d-polyfill": "^2.0.1",
     "postcss": "^8.4.23",
@@ -62,6 +63,10 @@
     "yargs": "^17.7.1"
   },
   "scripts": {
+    "vercel-build": "gulp generic",
+    "build": "gulp generic",
+    "copy-deps": "cp -r ./node_modules/es-module-shims ./public/node_modules && cp -r ./web/* ./public",
+    "prepare-deploy": "mkdir -p public/web && ncp web public/web && ncp build public/build",
     "postinstall": "cross-env PUPPETEER_PRODUCT=firefox node node_modules/puppeteer/install.js"
   },
   "repository": {
